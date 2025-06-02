@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protein Meal Planner - Portugal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Protein Meal Planner</h1>
+            <p class="header-subtitle">Optimized for 75kg Athletes in Portugal</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+            <button class="tab-btn" data-tab="meal-planning">Meal Planning</button>
+            <button class="tab-btn" data-tab="protein-tracker">Protein Tracker</button>
+            <button class="tab-btn" data-tab="shopping-list">Shopping List</button>
+            <button class="tab-btn" data-tab="cost-analysis">Cost Analysis</button>
+            <button class="tab-btn" data-tab="quick-reference">Quick Reference</button>
+        </nav>
+
+        <!-- Dashboard Tab -->
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-grid">
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Daily Protein Target</h3>
+                        <div class="protein-progress">
+                            <div class="progress-circle">
+                                <span class="progress-value" id="protein-percentage">0%</span>
+                            </div>
+                            <div class="progress-details">
+                                <p><span id="current-protein">0</span>g / <span id="target-protein">150</span>g</p>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="protein-progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Today's Stats</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-label">Daily Cost</span>
+                                <span class="stat-value">€<span id="daily-cost">8.60</span></span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Calories Est.</span>
+                                <span class="stat-value"><span id="daily-calories">2200</span> kcal</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Current Week</span>
+                                <span class="stat-value">Week <span id="current-week">1</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Current Date</h3>
+                        <p class="current-date" id="current-date">Monday, June 02, 2025</p>
+                        <div class="quick-actions">
+                            <button class="btn btn--sm btn--primary" onclick="addQuickProtein(27)">+27g Protein Powder</button>
+                            <button class="btn btn--sm btn--secondary" onclick="addQuickProtein(12)">+12g Eggs</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meal Planning Tab -->
+        <div id="meal-planning" class="tab-content">
+            <h2>Weekly Meal Plans</h2>
+            <div class="week-tabs">
+                <button class="week-btn active" data-week="week1">Week 1</button>
+                <button class="week-btn" data-week="week2">Week 2</button>
+                <button class="week-btn" data-week="week3">Week 3</button>
+                <button class="week-btn" data-week="week4">Week 4</button>
+            </div>
+
+            <div class="meal-plan-container">
+                <div id="week1" class="week-content active">
+                    <h3>Week 1 - High Protein Foundation</h3>
+                    <div class="meals-grid">
+                        <div class="meal-card">
+                            <h4>Breakfast</h4>
+                            <p>Oat porridge with plant protein powder (30g) + almond slices + chia seeds</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">35g protein</span>
+                                <span class="cost-badge">€1.50</span>
+                            </div>
+                        </div>
+                        <div class="meal-card">
+                            <h4>Lunch</h4>
+                            <p>Red lentil curry with quinoa (1 cup each) + mixed vegetables</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">26g protein</span>
+                                <span class="cost-badge">€2.00</span>
+                            </div>
+                        </div>
+                        <div class="meal-card">
+                            <h4>Dinner</h4>
+                            <p>Tuna salad (85g tuna) with chickpeas (1 cup) + vegetables + olive oil</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">37g protein</span>
+                                <span class="cost-badge">€2.50</span>
+                            </div>
+                        </div>
+                        <div class="meal-card">
+                            <h4>Snack 1</h4>
+                            <p>Greek yogurt (200g) with nuts</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">26g protein</span>
+                                <span class="cost-badge">€1.80</span>
+                            </div>
+                        </div>
+                        <div class="meal-card">
+                            <h4>Snack 2</h4>
+                            <p>Peanut butter (2 tbsp) on whole grain toast + oat milk</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">9g protein</span>
+                                <span class="cost-badge">€0.80</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="daily-totals">
+                        <h4>Daily Totals</h4>
+                        <div class="totals-row">
+                            <span>Total Protein: <strong>133g</strong></span>
+                            <span>Total Cost: <strong>€8.60</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="week2" class="week-content">
+                    <h3>Week 2 - Plant Power</h3>
+                    <div class="meals-grid">
+                        <div class="meal-card">
+                            <h4>Breakfast</h4>
+                            <p>Scrambled tofu (100g) with vegetables + whole grain toast + oat milk</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">18g protein</span>
+                                <span class="cost-badge">€1.30</span>
+                            </div>
+                        </div>
+                        <div class="meal-card">
+                            <h4>Lunch</h4>
+                            <p>Black bean and quinoa bowl (1 cup each) with avocado</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">23g protein</span>
+                                <span class="cost-badge">€2.20</span>
+                            </div>
+                        </div>
+                        <div class="meal-card">
+                            <h4>Dinner</h4>
+                            <p>Chickpea curry with rice + side salad</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">20g protein</span>
+                                <span class="cost-badge">€1.80</span>
+                            </div>
+                        </div>
+                        <div class="meal-card">
+                            <h4>Snack 1</h4>
+                            <p>Cottage cheese (180g) with berries</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">24g protein</span>
+                                <span class="cost-badge">€2.00</span>
+                            </div>
+                        </div>
+                        <div class="meal-card">
+                            <h4>Snack 2</h4>
+                            <p>Plant protein smoothie (30g powder) with banana and oat milk</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">28g protein</span>
+                                <span class="cost-badge">€1.50</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="daily-totals">
+                        <h4>Daily Totals</h4>
+                        <div class="totals-row">
+                            <span>Total Protein: <strong>113g</strong></span>
+                            <span>Total Cost: <strong>€8.80</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="week3" class="week-content">
+                    <h3>Week 3 - Balanced Mix</h3>
+                    <div class="meals-grid">
+                        <div class="meal-card">
+                            <h4>Breakfast</h4>
+                            <p>Greek yogurt (200g) with granola and chia seeds</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">26g protein</span>
+                                <span class="cost-badge">€1.80</span>
+                            </div>
+                        </div>
+                        <div class="meal-card">
+                            <h4>Lunch</h4>
+                            <p>Lentil soup with bread + tuna salad (85g) on side</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">30g protein</span>
+                                <span class="cost-badge">€2.10</span>
+                            </div>
+                        </div>
+                        <div class="meal-card">
+                            <h4>Dinner</h4>
+                            <p>Tofu stir-fry (100g) with quinoa and vegetables</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">23g protein</span>
+                                <span class="cost-badge">€2.00</span>
+                            </div>
+                        </div>
+                        <div class="meal-card">
+                            <h4>Snack 1</h4>
+                            <p>Hummus with vegetables + whole grain crackers</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">8g protein</span>
+                                <span class="cost-badge">€1.20</span>
+                            </div>
+                        </div>
+                        <div class="meal-card">
+                            <h4>Snack 2</h4>
+                            <p>Almond butter smoothie with plant milk and protein powder</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">30g protein</span>
+                                <span class="cost-badge">€1.60</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="daily-totals">
+                        <h4>Daily Totals</h4>
+                        <div class="totals-row">
+                            <span>Total Protein: <strong>117g</strong></span>
+                            <span>Total Cost: <strong>€8.70</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="week4" class="week-content">
+                    <h3>Week 4 - Complete Nutrition</h3>
+                    <div class="meals-grid">
+                        <div class="meal-card">
+                            <h4>Breakfast</h4>
+                            <p>Quinoa breakfast bowl with plant protein powder + nuts and seeds</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">35g protein</span>
+                                <span class="cost-badge">€1.90</span>
+                            </div>
+                        </div>
+                        <div class="meal-card">
+                            <h4>Lunch</h4>
+                            <p>Three-bean salad with quinoa and olive oil dressing</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">25g protein</span>
+                                <span class="cost-badge">€1.80</span>
+                            </div>
+                        </div>
+                        <div class="meal-card">
+                            <h4>Dinner</h4>
+                            <p>Egg curry (2 eggs) with lentils and rice</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">30g protein</span>
+                                <span class="cost-badge">€1.70</span>
+                            </div>
+                        </div>
+                        <div class="meal-card">
+                            <h4>Snack 1</h4>
+                            <p>Protein smoothie bowl with Greek yogurt and seeds</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">26g protein</span>
+                                <span class="cost-badge">€2.00</span>
+                            </div>
+                        </div>
+                        <div class="meal-card">
+                            <h4>Snack 2</h4>
+                            <p>Mixed nuts and seeds with plant milk</p>
+                            <div class="meal-stats">
+                                <span class="protein-badge">7g protein</span>
+                                <span class="cost-badge">€1.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="daily-totals">
+                        <h4>Daily Totals</h4>
+                        <div class="totals-row">
+                            <span>Total Protein: <strong>123g</strong></span>
+                            <span>Total Cost: <strong>€8.40</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Protein Tracker Tab -->
+        <div id="protein-tracker" class="tab-content">
+            <h2>Daily Protein Tracker</h2>
+            <div class="tracker-container">
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Quick Add Protein</h3>
+                        <div class="quick-add-grid">
+                            <button class="quick-add-btn" onclick="addProtein(27, 'Protein Powder')">Protein Powder<br><span>+27g</span></button>
+                            <button class="quick-add-btn" onclick="addProtein(12, 'Eggs (2)')">Eggs (2)<br><span>+12g</span></button>
+                            <button class="quick-add-btn" onclick="addProtein(20, 'Greek Yogurt')">Greek Yogurt<br><span>+20g</span></button>
+                            <button class="quick-add-btn" onclick="addProtein(18, 'Lentils (1 cup)')">Lentils (1 cup)<br><span>+18g</span></button>
+                            <button class="quick-add-btn" onclick="addProtein(22, 'Tuna (85g)')">Tuna (85g)<br><span>+22g</span></button>
+                            <button class="quick-add-btn" onclick="addProtein(15, 'Tofu (100g)')">Tofu (100g)<br><span>+15g</span></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Today's Progress</h3>
+                        <div class="protein-visual">
+                            <div class="protein-meter">
+                                <div class="meter-fill" id="protein-meter"></div>
+                                <div class="meter-markers">
+                                    <span class="marker minimum">120g</span>
+                                    <span class="marker optimal">150g</span>
+                                    <span class="marker maximum">180g</span>
+                                </div>
+                            </div>
+                            <p class="protein-status" id="protein-status">Add protein to start tracking</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Today's Log</h3>
+                        <div id="protein-log" class="protein-log">
+                            <p class="empty-log">No protein logged yet today</p>
+                        </div>
+                        <button class="btn btn--secondary btn--sm" onclick="clearProteinLog()">Clear Log</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shopping List Tab -->
+        <div id="shopping-list" class="tab-content">
+            <h2>Shopping List Generator</h2>
+            <div class="shopping-controls">
+                <label for="week-select">Select Week:</label>
+                <select id="week-select" class="form-control">
+                    <option value="week1">Week 1 - High Protein Foundation</option>
+                    <option value="week2">Week 2 - Plant Power</option>
+                    <option value="week3">Week 3 - Balanced Mix</option>
+                    <option value="week4">Week 4 - Complete Nutrition</option>
+                </select>
+                <button class="btn btn--primary" onclick="generateShoppingList()">Generate List</button>
+            </div>
+
+            <div id="shopping-list-content" class="shopping-list-grid">
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Protein Sources</h3>
+                        <ul id="proteins-list">
+                            <li>Select a week to generate shopping list</li>
+                        </ul>
+                        <p class="category-cost">Estimated cost: <span id="proteins-cost">€0.00</span></p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Pantry Items</h3>
+                        <ul id="pantry-list">
+                            <li>Select a week to generate shopping list</li>
+                        </ul>
+                        <p class="category-cost">Estimated cost: <span id="pantry-cost">€0.00</span></p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Fresh Foods</h3>
+                        <ul id="fresh-list">
+                            <li>Select a week to generate shopping list</li>
+                        </ul>
+                        <p class="category-cost">Estimated cost: <span id="fresh-cost">€0.00</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cost Analysis Tab -->
+        <div id="cost-analysis" class="tab-content">
+            <h2>Cost Analysis</h2>
+            <div class="cost-overview">
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Monthly Budget</h3>
+                        <div class="budget-stats">
+                            <div class="budget-item">
+                                <span class="budget-label">Total Monthly Cost</span>
+                                <span class="budget-value">€192.20</span>
+                            </div>
+                            <div class="budget-item">
+                                <span class="budget-label">Daily Average</span>
+                                <span class="budget-value">€6.41</span>
+                            </div>
+                            <div class="budget-item">
+                                <span class="budget-label">Cost per gram protein</span>
+                                <span class="budget-value">€0.042</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Protein Cost Effectiveness</h3>
+                        <img src="https://pplx-res.cloudinary.com/image/upload/v1748872004/pplx_code_interpreter/7903cfd5_hmzqjs.jpg" alt="Protein cost effectiveness chart" class="protein-chart">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card__body">
+                    <h3>Monthly Breakdown</h3>
+                    <div class="breakdown-list">
+                        <div class="breakdown-item">
+                            <span>Red Lentils (2kg)</span>
+                            <span>€6.00</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Chickpeas (2kg)</span>
+                            <span>€9.00</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Black Beans (2kg)</span>
+                            <span>€6.00</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Canned Tuna (12 cans)</span>
+                            <span>€7.20</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Quinoa (2kg)</span>
+                            <span>€18.00</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Eggs (48 eggs/4 dozen)</span>
+                            <span>€15.00</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Greek Yogurt (weekly)</span>
+                            <span>€20.00</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Cottage Cheese (weekly)</span>
+                            <span>€16.00</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Tofu (monthly)</span>
+                            <span>€10.00</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Plant Protein Powder (1kg)</span>
+                            <span>€25.00</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Oat Milk (monthly)</span>
+                            <span>€12.00</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Peanut Butter (2 jars)</span>
+                            <span>€8.00</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Nuts and Seeds</span>
+                            <span>€15.00</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Vegetables and extras</span>
+                            <span>€25.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Reference Tab -->
+        <div id="quick-reference" class="tab-content">
+            <h2>Quick Reference</h2>
+            <div class="reference-grid">
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Protein Sources</h3>
+                        <div class="protein-sources">
+                            <div class="source-item">
+                                <span class="source-name">Red Lentils (1 cup cooked)</span>
+                                <span class="source-protein">18g - €0.25</span>
+                            </div>
+                            <div class="source-item">
+                                <span class="source-name">Canned Tuna (85g)</span>
+                                <span class="source-protein">22g - €0.60</span>
+                            </div>
+                            <div class="source-item">
+                                <span class="source-name">Plant Protein Powder (30g)</span>
+                                <span class="source-protein">27g - €0.80</span>
+                            </div>
+                            <div class="source-item">
+                                <span class="source-name">Greek Yogurt (200g)</span>
+                                <span class="source-protein">20.6g - €1.20</span>
+                            </div>
+                            <div class="source-item">
+                                <span class="source-name">Eggs (2 large)</span>
+                                <span class="source-protein">12.4g - €0.62</span>
+                            </div>
+                            <div class="source-item">
+                                <span class="source-name">Tofu (100g)</span>
+                                <span class="source-protein">15g - €0.80</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Emergency Protein Boosters</h3>
+                        <div class="boosters">
+                            <div class="booster-item">
+                                <button class="btn btn--sm btn--outline" onclick="addProtein(27, 'Protein Powder Boost')">Add 1 scoop protein powder (+27g)</button>
+                            </div>
+                            <div class="booster-item">
+                                <button class="btn btn--sm btn--outline" onclick="addProtein(12, 'Eggs Boost')">Add 2 eggs (+12g)</button>
+                            </div>
+                            <div class="booster-item">
+                                <button class="btn btn--sm btn--outline" onclick="addProtein(20, 'Greek Yogurt Boost')">Add extra Greek yogurt (+20g)</button>
+                            </div>
+                            <div class="booster-item">
+                                <button class="btn btn--sm btn--outline" onclick="addProtein(9, 'Lentils Boost')">Add 1/2 cup extra lentils (+9g)</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Portuguese Supermarket Tips</h3>
+                        <ul class="tips-list">
+                            <li><strong>Continente:</strong> Good for bulk lentils, quinoa, and protein powder</li>
+                            <li><strong>Pingo Doce:</strong> Competitive prices on eggs and dairy</li>
+                            <li><strong>Lidl:</strong> Best deals on canned tuna and nuts</li>
+                            <li><strong>Local Markets:</strong> Fresh vegetables and seasonal produce</li>
+                            <li><strong>Celeiro:</strong> Specialized in health foods and organic options</li>
+                            <li><strong>Tip:</strong> Buy legumes in bulk from oriental shops for better prices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

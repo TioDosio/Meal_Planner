@@ -1,0 +1,7 @@
+Meal,Protein Target (g),Actual Protein (g),Notes
+Breakfast,25,,
+Lunch,35,,
+Dinner,35,,
+Snack 1,15,,
+Snack 2,15,,
+DAILY TOTAL,125,=SUM(B2:B6),

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Meal Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>Weekly Meal Planner</h1>
+            <p class="header__subtitle">Plan your meals, generate shopping lists, and organize your week</p>
+        </div>
+    </header>
+
+    <!-- Controls Panel -->
+    <section class="controls-panel">
+        <div class="container">
+            <div class="controls-panel__content">
+                <div class="controls-panel__left">
+                    <div class="form-group">
+                        <label for="weekSelector" class="form-label">Select Week:</label>
+                        <select id="weekSelector" class="form-control week-selector">
+                            <!-- Options populated by JavaScript -->
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="controls-panel__right">
+                    <button id="addWeekBtn" class="btn btn--secondary btn--sm">+ Add New Week</button>
+                    <button id="deleteWeekBtn" class="btn btn--outline btn--sm btn--danger">🗑️ Delete Week</button>
+                    <button id="cleanWeekBtn" class="btn btn--outline btn--sm">🧹 Clean Week</button>
+                    <button id="generateListBtn" class="btn btn--primary btn--sm">📋 Shopping List</button>
+                    <button id="importBtn" class="btn btn--secondary btn--sm">📥 Import CSV</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Current Week Display -->
+            <div class="week-info">
+                <h2 id="currentWeekTitle">Week 1</h2>
+            </div>
+
+            <!-- Meal Planning Grid -->
+            <div class="meal-grid">
+                <!-- Days of the week headers -->
+                <div class="meal-grid__header">
+                    <div class="day-header">Monday</div>
+                    <div class="day-header">Tuesday</div>
+                    <div class="day-header">Wednesday</div>
+                    <div class="day-header">Thursday</div>
+                    <div class="day-header">Friday</div>
+                    <div class="day-header">Saturday</div>
+                    <div class="day-header">Sunday</div>
+                </div>
+
+                <!-- Meal rows -->
+                <div class="meal-grid__body">
+                    <!-- Breakfast row -->
+                    <div class="meal-row">
+                        <div class="meal-type-label">Breakfast</div>
+                        <div class="meal-cell" data-day="Monday" data-meal="Breakfast"></div>
+                        <div class="meal-cell" data-day="Tuesday" data-meal="Breakfast"></div>
+                        <div class="meal-cell" data-day="Wednesday" data-meal="Breakfast"></div>
+                        <div class="meal-cell" data-day="Thursday" data-meal="Breakfast"></div>
+                        <div class="meal-cell" data-day="Friday" data-meal="Breakfast"></div>
+                        <div class="meal-cell" data-day="Saturday" data-meal="Breakfast"></div>
+                        <div class="meal-cell" data-day="Sunday" data-meal="Breakfast"></div>
+                    </div>
+
+                    <!-- Snack 1 row -->
+                    <div class="meal-row">
+                        <div class="meal-type-label">Snack 1</div>
+                        <div class="meal-cell" data-day="Monday" data-meal="Snack 1"></div>
+                        <div class="meal-cell" data-day="Tuesday" data-meal="Snack 1"></div>
+                        <div class="meal-cell" data-day="Wednesday" data-meal="Snack 1"></div>
+                        <div class="meal-cell" data-day="Thursday" data-meal="Snack 1"></div>
+                        <div class="meal-cell" data-day="Friday" data-meal="Snack 1"></div>
+                        <div class="meal-cell" data-day="Saturday" data-meal="Snack 1"></div>
+                        <div class="meal-cell" data-day="Sunday" data-meal="Snack 1"></div>
+                    </div>
+
+                    <!-- Lunch row -->
+                    <div class="meal-row">
+                        <div class="meal-type-label">Lunch</div>
+                        <div class="meal-cell" data-day="Monday" data-meal="Lunch"></div>
+                        <div class="meal-cell" data-day="Tuesday" data-meal="Lunch"></div>
+                        <div class="meal-cell" data-day="Wednesday" data-meal="Lunch"></div>
+                        <div class="meal-cell" data-day="Thursday" data-meal="Lunch"></div>
+                        <div class="meal-cell" data-day="Friday" data-meal="Lunch"></div>
+                        <div class="meal-cell" data-day="Saturday" data-meal="Lunch"></div>
+                        <div class="meal-cell" data-day="Sunday" data-meal="Lunch"></div>
+                    </div>
+
+                    <!-- Snack 2 row -->
+                    <div class="meal-row">
+                        <div class="meal-type-label">Snack 2</div>
+                        <div class="meal-cell" data-day="Monday" data-meal="Snack 2"></div>
+                        <div class="meal-cell" data-day="Tuesday" data-meal="Snack 2"></div>
+                        <div class="meal-cell" data-day="Wednesday" data-meal="Snack 2"></div>
+                        <div class="meal-cell" data-day="Thursday" data-meal="Snack 2"></div>
+                        <div class="meal-cell" data-day="Friday" data-meal="Snack 2"></div>
+                        <div class="meal-cell" data-day="Saturday" data-meal="Snack 2"></div>
+                        <div class="meal-cell" data-day="Sunday" data-meal="Snack 2"></div>
+                    </div>
+
+                    <!-- Dinner row -->
+                    <div class="meal-row">
+                        <div class="meal-type-label">Dinner</div>
+                        <div class="meal-cell" data-day="Monday" data-meal="Dinner"></div>
+                        <div class="meal-cell" data-day="Tuesday" data-meal="Dinner"></div>
+                        <div class="meal-cell" data-day="Wednesday" data-meal="Dinner"></div>
+                        <div class="meal-cell" data-day="Thursday" data-meal="Dinner"></div>
+                        <div class="meal-cell" data-day="Friday" data-meal="Dinner"></div>
+                        <div class="meal-cell" data-day="Saturday" data-meal="Dinner"></div>
+                        <div class="meal-cell" data-day="Sunday" data-meal="Dinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Edit Meal Modal -->
+    <div id="editMealModal" class="modal" role="dialog" aria-labelledby="editMealTitle" aria-hidden="true">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3 id="editMealTitle">Edit Meal</h3>
+                <button class="modal__close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal__body">
+                <form id="editMealForm">
+                    <div class="form-group">
+                        <label for="ingredients" class="form-label">Ingredients & Weights:</label>
+                        <textarea id="ingredients" class="form-control" rows="4" placeholder="Enter ingredients with weights (e.g., Oatmeal (100g), Chia seeds (20g))"></textarea>
+                        <small class="form-text">Include weights in parentheses for each ingredient</small>
+                    </div>
+                </form>
+            </div>
+            <div class="modal__footer">
+                <button type="button" class="btn btn--outline" id="cancelEditBtn">Cancel</button>
+                <button type="button" class="btn btn--primary" id="saveMealBtn">Save Meal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Week Confirmation Modal -->
+    <div id="deleteWeekModal" class="modal" role="dialog" aria-labelledby="deleteWeekTitle" aria-hidden="true">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3 id="deleteWeekTitle">Delete Week</h3>
+                <button class="modal__close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal__body">
+                <p id="deleteWeekMessage">Are you sure you want to delete this week? This action cannot be undone.</p>
+            </div>
+            <div class="modal__footer">
+                <button type="button" class="btn btn--outline" id="cancelDeleteBtn">Cancel</button>
+                <button type="button" class="btn btn--primary btn--danger" id="confirmDeleteBtn">Delete Week</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clean Week Confirmation Modal -->
+    <div id="cleanWeekModal" class="modal" role="dialog" aria-labelledby="cleanWeekTitle" aria-hidden="true">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3 id="cleanWeekTitle">Clean Week</h3>
+                <button class="modal__close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal__body">
+                <p id="cleanWeekMessage">Are you sure you want to clear all meals from this week? This will remove all ingredients and weights.</p>
+            </div>
+            <div class="modal__footer">
+                <button type="button" class="btn btn--outline" id="cancelCleanBtn">Cancel</button>
+                <button type="button" class="btn btn--primary" id="confirmCleanBtn">Clean Week</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopping List Modal -->
+    <div id="shoppingListModal" class="modal" role="dialog" aria-labelledby="shoppingListTitle" aria-hidden="true">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content modal__content--large">
+            <div class="modal__header">
+                <h3 id="shoppingListTitle">Shopping List</h3>
+                <button class="modal__close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal__body">
+                <div id="shoppingListContent">
+                    <!-- Shopping list items populated by JavaScript -->
+                </div>
+            </div>
+            <div class="modal__footer">
+                <button type="button" class="btn btn--outline" id="closeShoppingListBtn">Close</button>
+                <button type="button" class="btn btn--primary" id="printShoppingListBtn">Print List</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CSV Import Modal -->
+    <div id="csvImportModal" class="modal" role="dialog" aria-labelledby="csvImportTitle" aria-hidden="true">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3 id="csvImportTitle">Import CSV Data</h3>
+                <button class="modal__close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal__body">
+                <div class="csv-drop-zone" id="csvDropZone">
+                    <p>Drag and drop a CSV file here, or click to select</p>
+                    <input type="file" id="csvFileInput" accept=".csv" style="display: none;">
+                </div>
+                <div class="csv-format-info">
+                    <h4>Expected CSV Format:</h4>
+                    <code>Week,Day of the week,TypeOfMeal,Ingredients & Weights</code>
+                    <p><strong>Example row:</strong></p>
+                    <code>Week 1,Monday,Breakfast,"Oatmeal (100g), Chia seeds (20g)"</code>
+                    <p>Valid meal types: Breakfast, Snack 1, Lunch, Snack 2, Dinner</p>
+                    <p>Valid days: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</p>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <button type="button" class="btn btn--outline" id="cancelImportBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
