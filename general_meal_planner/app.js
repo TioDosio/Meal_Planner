@@ -9,58 +9,6 @@ class MealPlanner {
             "sampleWeeks": [
                 {
                     "weekNumber": 1,
-                    "meals": [
-                        {"day": "Monday", "mealType": "Breakfast", "ingredients": "Oatmeal (100g), Chia seeds (20g), Almond butter (20g), Greek yogurt (100g)"},
-                        {"day": "Monday", "mealType": "Snack 1", "ingredients": "Greek yogurt (150g), Pumpkin seeds (20g)"},
-                        {"day": "Monday", "mealType": "Lunch", "ingredients": "Lentils (200g), Quinoa (150g), Tofu (50g)"},
-                        {"day": "Monday", "mealType": "Snack 2", "ingredients": "Hummus (100g), Carrot sticks (100g)"},
-                        {"day": "Monday", "mealType": "Dinner", "ingredients": "Quinoa (100g), Black beans (180g), Tempeh (50g)"},
-                        {"day": "Tuesday", "mealType": "Breakfast", "ingredients": "Oatmeal (100g), Chia seeds (20g), Almond butter (20g), Greek yogurt (100g)"},
-                        {"day": "Tuesday", "mealType": "Snack 1", "ingredients": "Greek yogurt (150g), Pumpkin seeds (20g)"},
-                        {"day": "Tuesday", "mealType": "Lunch", "ingredients": "Chickpeas (200g), Brown rice (150g), Spinach (100g)"},
-                        {"day": "Tuesday", "mealType": "Snack 2", "ingredients": "Hummus (100g), Carrot sticks (100g)"},
-                        {"day": "Tuesday", "mealType": "Dinner", "ingredients": "Red lentils (180g), Sweet potato (150g), Broccoli (100g)"},
-                        {"day": "Wednesday", "mealType": "Breakfast", "ingredients": "Oatmeal (100g), Chia seeds (20g), Almond butter (20g), Greek yogurt (100g)"},
-                        {"day": "Wednesday", "mealType": "Snack 1", "ingredients": "Greek yogurt (150g), Pumpkin seeds (20g)"},
-                        {"day": "Wednesday", "mealType": "Lunch", "ingredients": "Black beans (200g), Quinoa (150g), Kale (100g)"},
-                        {"day": "Wednesday", "mealType": "Snack 2", "ingredients": "Hummus (100g), Carrot sticks (100g)"},
-                        {"day": "Wednesday", "mealType": "Dinner", "ingredients": "Lentils (180g), Brown rice (150g), Zucchini (100g)"},
-                        {"day": "Thursday", "mealType": "Breakfast", "ingredients": "Oatmeal (100g), Chia seeds (20g), Almond butter (20g), Greek yogurt (100g)"},
-                        {"day": "Thursday", "mealType": "Snack 1", "ingredients": "Greek yogurt (150g), Pumpkin seeds (20g)"},
-                        {"day": "Thursday", "mealType": "Lunch", "ingredients": "Tofu (200g), Quinoa (150g), Mixed vegetables (100g)"},
-                        {"day": "Thursday", "mealType": "Snack 2", "ingredients": "Hummus (100g), Carrot sticks (100g)"},
-                        {"day": "Thursday", "mealType": "Dinner", "ingredients": "Chickpeas (180g), Couscous (150g), Eggplant (100g)"},
-                        {"day": "Friday", "mealType": "Breakfast", "ingredients": "Oatmeal (100g), Chia seeds (20g), Almond butter (20g), Greek yogurt (100g)"},
-                        {"day": "Friday", "mealType": "Snack 1", "ingredients": "Greek yogurt (150g), Pumpkin seeds (20g)"},
-                        {"day": "Friday", "mealType": "Lunch", "ingredients": "Lentils (200g), Quinoa (150g), Spinach (100g)"},
-                        {"day": "Friday", "mealType": "Snack 2", "ingredients": "Hummus (100g), Carrot sticks (100g)"},
-                        {"day": "Friday", "mealType": "Dinner", "ingredients": "Black beans (180g), Brown rice (150g), Bell peppers (100g)"}
-                    ]
-                },
-                {
-                    "weekNumber": 2,
-                    "meals": [
-                        {"day": "Monday", "mealType": "Breakfast", "ingredients": "Oatmeal (100g), Chia seeds (20g), Almond butter (20g), Greek yogurt (100g)"},
-                        {"day": "Monday", "mealType": "Snack 1", "ingredients": "Greek yogurt (150g), Pumpkin seeds (20g)"},
-                        {"day": "Monday", "mealType": "Lunch", "ingredients": "Black beans (200g), Quinoa (150g), Kale (100g)"},
-                        {"day": "Monday", "mealType": "Snack 2", "ingredients": "Hummus (100g), Carrot sticks (100g)"},
-                        {"day": "Monday", "mealType": "Dinner", "ingredients": "Lentils (180g), Brown rice (150g), Zucchini (100g)"},
-                        {"day": "Tuesday", "mealType": "Breakfast", "ingredients": "Oatmeal (100g), Chia seeds (20g), Almond butter (20g), Greek yogurt (100g)"},
-                        {"day": "Tuesday", "mealType": "Snack 1", "ingredients": "Greek yogurt (150g), Pumpkin seeds (20g)"},
-                        {"day": "Tuesday", "mealType": "Lunch", "ingredients": "Tofu (200g), Quinoa (150g), Mixed vegetables (100g)"},
-                        {"day": "Tuesday", "mealType": "Snack 2", "ingredients": "Hummus (100g), Carrot sticks (100g)"},
-                        {"day": "Tuesday", "mealType": "Dinner", "ingredients": "Chickpeas (180g), Couscous (150g), Eggplant (100g)"},
-                        {"day": "Wednesday", "mealType": "Breakfast", "ingredients": "Oatmeal (100g), Chia seeds (20g), Almond butter (20g), Greek yogurt (100g)"},
-                        {"day": "Wednesday", "mealType": "Snack 1", "ingredients": "Greek yogurt (150g), Pumpkin seeds (20g)"},
-                        {"day": "Wednesday", "mealType": "Lunch", "ingredients": "Lentils (200g), Quinoa (150g), Spinach (100g)"},
-                        {"day": "Wednesday", "mealType": "Snack 2", "ingredients": "Hummus (100g), Carrot sticks (100g)"},
-                        {"day": "Wednesday", "mealType": "Dinner", "ingredients": "Black beans (180g), Brown rice (150g), Broccoli (100g)"},
-                        {"day": "Thursday", "mealType": "Breakfast", "ingredients": "Oatmeal (100g), Chia seeds (20g), Almond butter (20g), Greek yogurt (100g)"},
-                        {"day": "Thursday", "mealType": "Snack 1", "ingredients": "Greek yogurt (150g), Pumpkin seeds (20g)"},
-                        {"day": "Thursday", "mealType": "Lunch", "ingredients": "Chickpeas (200g), Brown rice (150g), Mixed vegetables (100g)"},
-                        {"day": "Thursday", "mealType": "Snack 2", "ingredients": "Hummus (100g), Carrot sticks (100g)"},
-                        {"day": "Thursday", "mealType": "Dinner", "ingredients": "Tofu (180g), Quinoa (150g), Asparagus (100g)"}
-                    ]
                 }
             ]
         };
